@@ -7,14 +7,19 @@ const PokemonCard = (props) => {
 
     const evoluirPokemon = () => {
         console.log("Cliquei no botão de evoluir")
+       if (props.Card.evolved === false){
+        props.evoluir1()
+       }else {
+        props.evoluir2()
+       }
     }
-    
+  
   return (
-    <Card color={}>
-        <img src={} alt={`Pokemon`}/>
-        <PokemonName>{}</PokemonName>
-        <PokemonType>{}</PokemonType>
-        <p>{}kg</p>
+    <Card color={props.Card.color}>
+        <img src={props.Card.image} alt={`Pokemon`}/>
+        <PokemonName>{props.Card.name}</PokemonName>
+        <PokemonType>{props.Card.type}</PokemonType>
+        <p>{props.Card.weight}kg</p>
 
         <EvolveButton onClick={() => evoluirPokemon()}>Evoluir!</EvolveButton>
     </Card>
